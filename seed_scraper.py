@@ -1,11 +1,17 @@
 import csv
+import json
 import requests
 import re
 import os
 import tkinter as tk
 from tkinter import simpledialog, messagebox
 
-API_TOKEN = '1fbf00e703d2316372e0bbb8dbafafd2'
+def load_api_key():
+    with open('config_template.json', 'r') as file:
+        config = json.load(file)
+        return config["startgg_api_key"]
+
+API_TOKEN = load_api_key()
 
 # Query Skeleton
 query = """
